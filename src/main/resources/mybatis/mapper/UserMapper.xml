@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sayone.mybatis.springbootmybatis.api.UserMapper">
+
+<!--    <resultMap type="book" id="result">-->
+<!--        <id property="bookId" column="book_id" />-->
+<!--        <result property="bookName" column="book_name" />-->
+<!--        <result property="author" column="author" />-->
+<!--        <result property="publisher" column="publisher" />-->
+<!--        <result property="genre" column="genre" />-->
+<!--        <result property="bookStatus" column="book_status" />-->
+<!--        <result property="yearOfPublication" column="year_of_publication" />-->
+<!--        <result property="pid" column="publisher_id" />-->
+<!--        <result property="bookDescription" column="book_description" />-->
+<!--    </resultMap>-->
+
+<!--    <select id="findAll" resultType="book" resultMap="result">-->
+<!--        select * from book-->
+<!--    </select>-->
+
+</mapper>
