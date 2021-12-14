@@ -3,18 +3,18 @@
 
 <mapper namespace="com.sayone.mybatis.springbootmybatis.api.PublisherMapper">
 
-<!--    <resultMap type="publisher" id="result">-->
-<!--        <id property="id" column="id" />-->
-<!--        <result property="firstName" column="first_name" />-->
-<!--        <result property="lastName" column="last_name" />-->
-<!--        <result property="email" column="email" />-->
-<!--        <result property="phoneNumber" column="phone_number" />-->
-<!--&lt;!&ndash;        <result property="book" column="book" />&ndash;&gt;-->
-<!--        <result property="role" column="role" />-->
-<!--    </resultMap>-->
+    <resultMap type="com.sayone.mybatis.springbootmybatis.model.PublisherEntity" id="result">
+        <id property="id" column="id" />
+        <result property="firstName" column="first_name" />
+        <result property="lastName" column="last_name" />
+        <result property="email" column="email" />
+        <result property="phoneNumber" column="phone_number" />
+<!--        <result property="book" column="book" />-->
+        <result property="role" column="role" />
+    </resultMap>
 
-<!--    <select id="getAll" resultType="publisher" resultMap="result">-->
-<!--        select * from publisher-->
-<!--    </select>-->
+    <select id="getAll" resultType="com.sayone.mybatis.springbootmybatis.model.PublisherEntity" resultMap="result">
+        select * from publisher
+    </select>
 
 </mapper>
