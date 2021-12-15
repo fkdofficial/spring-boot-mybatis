@@ -16,10 +16,16 @@ public class PublisherController {
     @Autowired
     PublisherMapper publisherMapper;
 
-    @GetMapping("/get")
+    @GetMapping("/profile")
     public List<PublisherEntity> getAll(){
 
         return publisherMapper.getAll();
+    }
+
+    @GetMapping("/books")
+    public List<PublisherEntity> getBooks(){
+
+        return publisherMapper.getBooks();
     }
 
 }

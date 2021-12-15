@@ -1,6 +1,6 @@
 package com.sayone.mybatis.springbootmybatis.controllers;
 
-import com.sayone.mybatis.springbootmybatis.api.UserMapper;
+import com.sayone.mybatis.springbootmybatis.api.BookMapper;
 import com.sayone.mybatis.springbootmybatis.model.BookEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +14,11 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    UserMapper userMapper;
+    BookMapper bookMapper;
 
     @GetMapping("/books")
     public List<BookEntity> getAll(){
 
-        return userMapper.findAll();
+        return bookMapper.findAll();
     }
 }

@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.sayone.mybatis.springbootmybatis.api.UserMapper">
+<mapper namespace="com.sayone.mybatis.springbootmybatis.api.BookMapper">
 
-    <resultMap type="com.sayone.mybatis.springbootmybatis.model.BookEntity" id="result">
+    <resultMap type="com.sayone.mybatis.springbootmybatis.model.BookEntity" id="result2">
         <id property="bookId" column="book_id" />
         <result property="bookName" column="book_name" />
         <result property="author" column="author" />
         <result property="publisher" column="publisher" />
         <result property="genre" column="genre" />
         <result property="bookStatus" column="book_status" />
+        <result property="bookLink" column="book_link" />
         <result property="yearOfPublication" column="year_of_publication" />
-        <result property="pid" column="publisher_id" />
         <result property="bookDescription" column="book_description" />
+
+        <!--Many-on-one-->
+        <association property="pid" select="findPublisher" column="id=publisher_id" >
+        </association>
+
+
     </resultMap>
 
-    <select id="findAll" resultType="com.sayone.mybatis.springbootmybatis.model.BookEntity" resultMap="result">
+    <select id="findAll" resultMap="result2">
         select * from book
     </select>
+
+    <select id="findPublisher" resultMap="result1">
+        select * from publisher where id = #{id}
+    </select>
+
+    <resultMap type="com.sayone.mybatis.springbootmybatis.model.PublisherEntity" id="result1">
+    <id property="id" column="id" />
+    <result property="firstName" column="first_name" />
+    <result property="lastName" column="last_name" />
+    <result property="email" column="email" />
+    <result property="phoneNumber" column="phone_number" />
+    <result property="role" column="role" />
+    </resultMap>
 
 </mapper>

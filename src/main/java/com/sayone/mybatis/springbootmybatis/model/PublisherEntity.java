@@ -33,8 +33,8 @@ public class PublisherEntity implements Serializable {
     private int phoneNumber;
 
 //    @JsonManagedReference
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pid", orphanRemoval = true)
-//    private List<BookEntity> book = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pid", orphanRemoval = true)
+    private List<BookEntity> book = new ArrayList<>();
 
     @Column(nullable = false)
     private String role;
@@ -98,11 +98,11 @@ public class PublisherEntity implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-//    public List<BookEntity> getBook() {
-//        return book;
-//    }
-//
-//    public void setBook(List<BookEntity> book) {
-//        this.book = book;
-//    }
+    public List<BookEntity> getBook() {
+        return book;
+    }
+
+    public void setBook(List<BookEntity> book) {
+        this.book = book;
+    }
 }

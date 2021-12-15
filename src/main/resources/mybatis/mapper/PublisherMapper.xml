@@ -3,18 +3,54 @@
 
 <mapper namespace="com.sayone.mybatis.springbootmybatis.api.PublisherMapper">
 
-    <resultMap type="com.sayone.mybatis.springbootmybatis.model.PublisherEntity" id="result">
+    <resultMap type="com.sayone.mybatis.springbootmybatis.model.PublisherEntity" id="result1">
         <id property="id" column="id" />
         <result property="firstName" column="first_name" />
         <result property="lastName" column="last_name" />
         <result property="email" column="email" />
         <result property="phoneNumber" column="phone_number" />
-<!--        <result property="book" column="book" />-->
         <result property="role" column="role" />
+
+        <!--One-to-many-->
+        <collection property = "book"
+                    ofType = "com.sayone.mybatis.springbootmybatis.model.BookEntity" javaType="list" column="pid=id" select="getAllBooks">
+        </collection>
     </resultMap>
 
-    <select id="getAll" resultType="com.sayone.mybatis.springbootmybatis.model.PublisherEntity" resultMap="result">
+    <select id="getAll" resultMap="result1">
         select * from publisher
     </select>
+
+    <select id="getAllBooks" resultMap="result2">
+        select * from book where publisher_id = #{pid}
+    </select>
+
+    <resultMap type="com.sayone.mybatis.springbootmybatis.model.BookEntity" id="result2">
+    <id property="bookId" column="book_id" />
+    <result property="bookName" column="book_name" />
+    <result property="author" column="author" />
+    <result property="publisher" column="publisher" />
+    <result property="genre" column="genre" />
+    <result property="bookStatus" column="book_status" />
+    <result property="bookLink" column="book_link" />
+    <result property="yearOfPublication" column="year_of_publication" />
+    <result property="bookDescription" column="book_description" />
+    </resultMap>
+
+    <select id="getBooks" resultMap="result3">
+        select * from book
+    </select>
+
+    <resultMap type="com.sayone.mybatis.springbootmybatis.model.BookEntity" id="result3">
+        <id property="bookId" column="book_id" />
+        <result property="bookName" column="book_name" />
+        <result property="author" column="author" />
+        <result property="publisher" column="publisher" />
+        <result property="genre" column="genre" />
+        <result property="bookStatus" column="book_status" />
+        <result property="bookLink" column="book_link" />
+        <result property="yearOfPublication" column="year_of_publication" />
+        <result property="bookDescription" column="book_description" />
+    </resultMap>
 
 </mapper>

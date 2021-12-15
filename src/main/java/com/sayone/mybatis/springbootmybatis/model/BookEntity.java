@@ -22,16 +22,16 @@ public class BookEntity {
     private String genre;
     @Column(nullable = false)
     private String bookStatus;
-    @Column
+    @Column(nullable = false)
     private String bookLink;
     @Column(nullable = false)
     private long yearOfPublication;
     @Column(nullable = false)
     private String bookDescription;
 //    @JsonBackReference
-//    @ManyToOne
-//    @JoinColumn(name = "publisher_id")
-//    private PublisherEntity pid;
+    @ManyToOne
+    @JoinColumn(name = "publisher_id")
+    private PublisherEntity pid;
 
     public BookEntity() {
     }
@@ -120,13 +120,13 @@ public class BookEntity {
         this.bookDescription = bookDescription;
     }
 
-//    public PublisherEntity getPid() {
-//        return pid;
-//    }
-//
-//    public void setPid(PublisherEntity pid) {
-//        this.pid = pid;
-//    }
+    public PublisherEntity getPid() {
+        return pid;
+    }
+
+    public void setPid(PublisherEntity pid) {
+        this.pid = pid;
+    }
 
     @Override
     public String toString() {

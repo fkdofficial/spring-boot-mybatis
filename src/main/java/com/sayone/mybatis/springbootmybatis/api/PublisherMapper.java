@@ -10,4 +10,6 @@ import java.util.List;
 public interface PublisherMapper {
 
     List<PublisherEntity> getAll();
+
+    List<PublisherEntity> getBooks();
 }
